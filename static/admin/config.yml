@@ -1,6 +1,6 @@
 backend:
   name: github
-  repo: jimmybutton/gatsby-netlifycms-tailwind-starter
+  repo: jemtee/gatsby-netlifycms-tailwind-starter2
   branch: main
 
 local_backend: true
