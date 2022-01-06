@@ -42,6 +42,39 @@ collections:
       - { label: "Body", name: "body", widget: "markdown" }
       # - {label: "Tags", name: "tags", widget: "list"}
 
+  - name: "blogposts"
+    label: "Blog"
+    folder: "src/pages/blog"
+    filter: {field: "templateKey", value: "blog-page"}
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    summary: "{{title}} {{year}}-{{month}}-{{day}} {{fields.featured}}"
+    fields:
+      - {
+          label: "Template Key",
+          name: "templateKey",
+          widget: "hidden",
+          default: "blog-page",
+        }
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Publish Date", name: "date", widget: "datetime" }
+      - { label: "Featured", name: "featured", widget: boolean }
+      - {label: "Description", name: "description", widget: "text"}
+      - {label: "Featured Post", name: "featuredpost", widget: "boolean"}
+      - {
+          label: "Featured Image",
+          name: "featuredimage",
+          widget: object,
+          fields:
+            [
+              { label: Image, name: image, widget: image },
+              { label: Alt, name: alt, widget: string },
+            ],
+        }
+      - { label: Location, name: location, widget: string }
+      - { label: "Body", name: "body", widget: "markdown" }
+      - {label: "Tags", name: "tags", widget: "list"}
+
   - name: "pages"
     label: "Pages"
     files:
