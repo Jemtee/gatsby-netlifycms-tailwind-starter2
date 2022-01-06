@@ -2,7 +2,7 @@
 
 
 
-templateKey: blog-post
+templateKey: blog-page
 title: A beginners’ guide to brewing with Chemex
 date: 2021-07-24T16:01:51.183Z
 featured: false
