@@ -1,111 +1,141 @@
-const siteUrl =
-  process.env.URL || `https://objective-thompson-fe2703.netlify.app`
+require('dotenv').config({
+  path: `.env.${process.env.NODE_ENV}`,
+});
+
+module.exports = {
+  plugins: [`gatsby-plugin-netlify-cms`],
+}
 
 module.exports = {
   siteMetadata: {
-    title: "Andreas test site",
-    description:
-      "Transforming and enriching our urban environments with green living spaces",
-    siteUrl: "https://objective-thompson-fe2703.netlify.app",
+    title: `StoryHub`,
+    author: `Monnisa`,
+    about: `Every company has a story to tell, so break out your storytelling skills from that random English class you took years ago and put them to work on your “About Us” page. Using descriptive and emotive copy and gorgeous graphics, an “About Us” page with a story works.`,
+    description: `A Gatsby Blog`,
+    siteUrl: `https://storyhub-agency-tarex.redq.now.sh/`,
   },
   plugins: [
     {
-      // keep as first gatsby-source-filesystem plugin for gatsby image support
-      resolve: "gatsby-source-filesystem",
+      resolve: `gatsby-plugin-styled-components`,
       options: {
-        path: `${__dirname}/static/img`,
-        name: "uploads",
+        minify: false, // Breaks styles if not set to false
       },
     },
     {
-      resolve: "gatsby-source-filesystem",
+      resolve: `gatsby-source-filesystem`,
       options: {
-        path: `${__dirname}/src/pages`,
-        name: "pages",
+        path: `${__dirname}/content/blog`,
+        name: `blog`,
       },
     },
     {
-      resolve: "gatsby-source-filesystem",
+      resolve: `gatsby-source-filesystem`,
       options: {
-        path: `${__dirname}/src/img`,
-        name: "images",
+        path: `${__dirname}/content/assets`,
+        name: `assets`,
       },
     },
     {
-      resolve: `gatsby-plugin-layout`,
-      options: {
-        component: require.resolve(`./src/components/Layout`),
-      },
-    },
-    "gatsby-plugin-image",
-    "gatsby-plugin-sharp",
-    "gatsby-transformer-sharp",
-    {
-      resolve: "gatsby-transformer-remark",
+      resolve: `gatsby-transformer-remark`,
       options: {
         plugins: [
-          // gatsby-remark-relative-images must go before gatsby-remark-images
           {
-            resolve: "gatsby-remark-relative-images",
+            resolve: `gatsby-remark-images`,
             options: {
-              name: "uploads",
+              maxWidth: 590,
+              linkImagesToOriginal: true,
             },
           },
           {
-            resolve: "gatsby-remark-images",
+            resolve: `gatsby-remark-responsive-iframe`,
             options: {
-              // It's important to specify the maxWidth (in pixels) of
-              // the content container as this plugin uses this as the
-              // base for generating different widths of each image.
-              maxWidth: 2048,
+              wrapperStyle: `margin-bottom: 1.0725rem`,
             },
           },
           {
-            resolve: "gatsby-remark-copy-linked-files",
+            resolve: `gatsby-remark-katex`,
             options: {
-              destinationDir: "static",
+              // Add any KaTeX options from https://github.com/KaTeX/KaTeX/blob/master/docs/options.md here
+              strict: `ignore`,
             },
+          },
+          {
+            resolve: `gatsby-remark-mermaid`,
+          },
+          {
+            resolve: `gatsby-remark-prismjs`,
+          },
+
+          {
+            resolve: `gatsby-remark-copy-linked-files`,
+          },
+          {
+            resolve: `gatsby-remark-smartypants`,
+          },
+          {
+            resolve: `gatsby-remark-reading-time`,
           },
         ],
       },
     },
     {
+      resolve: `gatsby-plugin-image`,
+    },
+    {
+      resolve: `gatsby-transformer-sharp`,
+    },
+    {
+      resolve: `gatsby-plugin-sharp`,
+    },
+    {
+      resolve: `gatsby-plugin-google-analytics`,
+      options: {
+        trackingId: process.env.GOOGLE_ANALYTICS_TRACKING_ID, //`ADD YOUR TRACKING ID HERE`,
+      },
+    },
+    {
+      resolve: `gatsby-plugin-feed`,
+      options: {
+        feeds: [],
+      },
+    },
+    {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `UrbanGarden`,
-        short_name: `UrbanGarden`,
+        name: `StoryHub - Beauty Blog`,
+        short_name: `StoryHub`,
         start_url: `/`,
         background_color: `#ffffff`,
-        theme_color: `#047857`,
-        display: `standalone`,
-        icon: `src/img/urbangarden-icon.png`,
-      },
-    },
-    "gatsby-transformer-remark-frontmatter",
-    {
-      resolve: `gatsby-plugin-netlify-cms`,
-      options: {
-        /**
-         * One convention is to place your Netlify CMS customization code in a
-         * `src/cms` directory.
-         */
-        modulePath: `${__dirname}/src/cms/cms.js`,
-      },
-    },
-    "gatsby-plugin-postcss",
-    {
-      resolve: `gatsby-plugin-sitemap`,
-      options: {
-        resolveSiteUrl: () => siteUrl,
+        theme_color: `#663399`,
+        display: `minimal-ui`,
+        icon: `content/assets/favicon.png`,
       },
     },
     {
-      resolve: "gatsby-plugin-robots-txt",
+      resolve: `gatsby-plugin-offline`,
+    },
+    {
+      resolve: `gatsby-plugin-react-helmet`,
+    },
+    {
+      resolve: `gatsby-plugin-lodash`,
+    },
+    {
+      resolve: 'gatsby-plugin-mailchimp',
       options: {
-        host: siteUrl,
-        sitemap: `${siteUrl}/sitemap.xml`,
-        policy: [{ userAgent: "*", allow: "/" }],
+        endpoint: process.env.MAILCHIMP_ENDPOINT, // add your MC list endpoint here; see instructions below
+      },
+    },
+    {
+      resolve: 'gatsby-plugin-web-font-loader',
+      options: {
+        google: {
+          families: [
+            'Roboto:100,300,400,500,600,700',
+            'PT Serif:100,300,400,500,600,700',
+          ],
+        },
       },
     },
   ],
-}
+};

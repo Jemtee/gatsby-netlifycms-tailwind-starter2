@@ -1,85 +1,97 @@
-<div align="center" >
-    <a href="https://www.gatsbyjs.com" target="_blank">
-      <img alt="Gatsby" src="https://www.gatsbyjs.com/Gatsby-Monogram.svg" height="40" />
-    </a>
-      &nbsp;
-    <a href="https://www.netlifycms.org/" target="_blank">
-      <img alt="Netlify CMS" src="https://upload.wikimedia.org/wikipedia/commons/d/d4/Netlify_CMS_logo.svg" height="30" />
-    </a>
-      &nbsp;
-    <a href="https://tailwindcss.com/" target="_blank">
-      <img alt="Tailwind CSS" src="https://tailwindcss.com/_next/static/media/tailwindcss-mark.cb8046c163f77190406dfbf4dec89848.svg" height="40" />
-    </a>
-</div>
+<!-- AUTO-GENERATED-CONTENT:START (STARTER) -->
+<p align="center">
+  <a href="https://www.gatsbyjs.org">
+    <img alt="Gatsby" src="https://www.gatsbyjs.org/monogram.svg" width="60" />
+  </a>
+</p>
 <h1 align="center">
-  Gatsby v3 - Netlify CMS - Tailwind CSS - Starter
+  Gatsby's blog starter
 </h1>
 
-[![Netlify Status](https://api.netlify.com/api/v1/badges/b13fc0e1-9fca-48c2-b078-12722c7e0357/deploy-status)](https://app.netlify.com/sites/infallible-varahamihira-058515/deploys)
+Kick off your project with this blog boilerplate. This starter ships with the main Gatsby configuration files you might need to get up and running blazing fast with the blazing fast app generator for React.
 
-An example website built using Gatsby v3, Netlify CMS and Tailwind CSS.
+_Have another more specific idea? You may want to check out our vibrant collection of [official and community-created starters](https://www.gatsbyjs.org/docs/gatsby-starters/)._
 
-It's a website of a fake urban gardening agency and comprises of a landing page, a project portfolio, about page with team members, and a contact form.
+## 🚀 Quick start
 
- 👉 Check out the [demo site](https://infallible-varahamihira-058515.netlify.app/)!
+1.  **Create a Gatsby site.**
 
-<a href="https://app.netlify.com/start/deploy?repository=https://github.com/jimmybutton/gatsby-netlifycms-tailwind-starter" target="_blank"><img src="https://www.netlify.com/img/deploy/button.svg"></a>
+    Use the Gatsby CLI to create a new site, specifying the blog starter.
 
-## 🦾 Technologies and Plugins
+    ```sh
+    # create a new Gatsby site using the blog starter
+    gatsby new my-blog-starter https://github.com/gatsbyjs/gatsby-starter-blog
+    ```
 
-- ⚛️ **Gatsby v3**
-- ✍️ **Netlify CMS** (incl. Admin live preview for all pages)
-- 💨 **Tailwind CSS** for styling
-- 🌃 Performant images with gatsby-plugin-image and gatsby-plugin-sharp
-- ⛑ Site metadata with react-helmet
-- 🗺 Sitemap with gatsby-plugin-sitemap
-- 🤖 Robots.txt with gatsby-plugin-robots-txt
-- 🧩 Persistent navbar and footer with gatsby-plugin-layout
-- ...
+1.  **Start developing.**
 
-## 💻 Local Development
+    Navigate into your new site’s directory and start it up.
 
-Start development environment with
+    ```sh
+    cd my-blog-starter/
+    gatsby develop
+    ```
 
-```
-$ git clone https://github.com/jimmybutton/gatsby-netlifycms-tailwind-starter.git
-$ cd gatsby-netlifycms-tailwind-starter
-$ npm install
-$ gatsby develop
-```
+1.  **Open the source code and start editing!**
 
-The site is now available at `localhost:8000/`.
+    Your site is now running at `http://localhost:8000`!
 
-You can connect Netlify CMS to your [local git repo](https://www.netlifycms.org/docs/beta-features/#working-with-a-local-git-repository) (currenly a beta feature) by running this command in a separate terminal.
+    _Note: You'll also see a second link: _`http://localhost:8000/___graphql`_. This is a tool you can use to experiment with querying your data. Learn more about using this tool in the [Gatsby tutorial](https://www.gatsbyjs.org/tutorial/part-five/#introducing-graphiql)._
 
-```
-$ npx netlify-cms-proxy-server
-```
+    Open the `my-blog-starter` directory in your code editor of choice and edit `src/pages/index.js`. Save your changes and the browser will update in real time!
 
-The Netlify CMS Admin will then be available at `localhost:8000/admin`.
+## 🧐 What's inside?
 
-For more details on how to set up the CMS, check out the [Netlify CMS Docs](https://www.netlifycms.org/docs/intro/).
+A quick look at the top-level files and directories you'll see in a Gatsby project.
 
-## 🚨 Known issues
+    .
+    ├── node_modules
+    ├── src
+    ├── .gitignore
+    ├── .prettierrc
+    ├── gatsby-browser.js
+    ├── gatsby-config.js
+    ├── gatsby-node.js
+    ├── gatsby-ssr.js
+    ├── LICENSE
+    ├── package-lock.json
+    ├── package.json
+    └── README.md
 
-When running Netlify CMS locally and updating a page, I regularly get the following error:
+1.  **`/node_modules`**: This directory contains all of the modules of code that your project depends on (npm packages) are automatically installed.
 
-`There was an error in your GraphQL query: Field "image" must not have a selection since type "String" has no subfields.`
+2.  **`/src`**: This directory will contain all of the code related to what you will see on the front-end of your site (what you see in the browser) such as your site header or a page template. `src` is a convention for “source code”.
 
-This seems to have to do with the `gatsby-remark-relative-images` plugin. However, the solution suggested in the [docs](https://www.gatsbyjs.com/plugins/gatsby-remark-relative-images/?=gatsby-remark-relative-images#im-getting-the-error-field-image-must-not-have-a-selection-since-type-string-has-no-subfields) didn't fix the issue for me.
+3.  **`.gitignore`**: This file tells git which files it should not track / not maintain a version history for.
 
-I've you find a solution that works, please let me know or submit a pull request. Thanks!
+4.  **`.prettierrc`**: This is a configuration file for [Prettier](https://prettier.io/). Prettier is a tool to help keep the formatting of your code consistent.
 
-## 🙌 Credits and thanks
+5.  **`gatsby-browser.js`**: This file is where Gatsby expects to find any usage of the [Gatsby browser APIs](https://www.gatsbyjs.org/docs/browser-apis/) (if any). These allow customization/extension of default Gatsby settings affecting the browser.
 
-- This template was inspired by [gatsby-starter-netlify-cms](https://github.com/netlify-templates/gatsby-starter-netlify-cms)
-- Taylor Bell for his great course [Build a Blog with React and Markdown using Gatsby](https://egghead.io/courses/build-a-blog-with-react-and-markdown-using-gatsby), available for free on Egghead.io
-- [Merakiui.com](https://merakiui.com/) for the great free Tailwind CSS components
-- [Unsplash](https://unsplash.com/) and photographers for amazing photos
-- How to hide and show navbar on scroll: https://dev.to/pratiksharm/navbar-hide-and-show-on-scroll-using-custom-react-hooks-1k98
-- How to use prevent layout components from unmounting: https://www.gatsbyjs.com/docs/how-to/routing/layout-components/#how-to-prevent-layout-components-from-unmounting
+6.  **`gatsby-config.js`**: This is the main configuration file for a Gatsby site. This is where you can specify information about your site (metadata) like the site title and description, which Gatsby plugins you’d like to include, etc. (Check out the [config docs](https://www.gatsbyjs.org/docs/gatsby-config/) for more detail).
 
-## 🛠 Todo
+7.  **`gatsby-node.js`**: This file is where Gatsby expects to find any usage of the [Gatsby Node APIs](https://www.gatsbyjs.org/docs/node-apis/) (if any). These allow customization/extension of default Gatsby settings affecting pieces of the site build process.
 
-- Google analytics? https://www.gatsbyjs.com/plugins/gatsby-plugin-gtag/?=google%20analytics#gatsby-plugin-gtag
-- gatsby plugin offline?
+8.  **`gatsby-ssr.js`**: This file is where Gatsby expects to find any usage of the [Gatsby server-side rendering APIs](https://www.gatsbyjs.org/docs/ssr-apis/) (if any). These allow customization of default Gatsby settings affecting server-side rendering.
+
+9.  **`LICENSE`**: Gatsby is licensed under the MIT license.
+
+10. **`package-lock.json`** (See `package.json` below, first). This is an automatically generated file based on the exact versions of your npm dependencies that were installed for your project. **(You won’t change this file directly).**
+
+11. **`package.json`**: A manifest file for Node.js projects, which includes things like metadata (the project’s name, author, etc). This manifest is how npm knows which packages to install for your project.
+
+12. **`README.md`**: A text file containing useful reference information about your project.
+
+## 🎓 Learning Gatsby
+
+Looking for more guidance? Full documentation for Gatsby lives [on the website](https://www.gatsbyjs.org/). Here are some places to start:
+
+- **For most developers, we recommend starting with our [in-depth tutorial for creating a site with Gatsby](https://www.gatsbyjs.org/tutorial/).** It starts with zero assumptions about your level of ability and walks through every step of the process.
+
+- **To dive straight into code samples, head [to our documentation](https://www.gatsbyjs.org/docs/).** In particular, check out the _Guides_, _API Reference_, and _Advanced Tutorials_ sections in the sidebar.
+
+## 💫 Deploy
+
+[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/gatsbyjs/gatsby-starter-blog)
+
+<!-- AUTO-GENERATED-CONTENT:END -->
